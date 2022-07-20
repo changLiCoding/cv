@@ -2,116 +2,92 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>滚动事件</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .header,
-        .banner,
-        .main {
-            width: 980px;
-            margin: 20px auto;
-        }
-
-        .header {
-            height: 200px;
-            background-color: aqua;
-        }
-
-        .banner {
-            height: 500px;
-            background-color: blue;
-        }
-
-        .main {
-            height: 1000px;
-            background-color: darkseagreen;
-        }
-
-        .slider-bar {
-            position: absolute;
-            top: 500px;
-            left: 1160px;
-            z-index: 999;
-            background-color: lawngreen;
-            height: 200px;
-            width: 80px;
-        }
-
-        .goBack {
-            display: none;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Story of Chang</title>
 </head>
 
 <body>
+  <table cellspacing="20">
+    <tr>
+      <td>
+        <img src="image/fake-human-circle-img.png" alt="chang's pic">
+      </td>
+      <td>
+        <h1>Chang Li</h1>
+        <p>Founder and CEO of <a href="https://www.baidu.com"><em>FunProject.Inc</em></a></p>
+        <p>Love coding,and want do it for the rest of my life.</p>
+      </td>
+    </tr>
+  </table>
 
-    <div class="slider-bar">
-        <span class="goBack">返回顶部</span>
-    </div>
-    <div class="header">header</div>
-    <div class="banner">banner</div>
-    <div class="main">mainbody</div>
-    <script>
-        var sliderBar = document.querySelector('.slider-bar');
-        var goBack = document.querySelector('.goBack');
-        var banner = document.querySelector('.banner');
-        var bannerTop = banner.offsetTop;
-        var sliderBarTop = sliderBar.offsetTop;
-        var mainBody = document.querySelector('.main');
-        var mainBodyTop = mainBody.offsetTop;
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset >= bannerTop) {
-                sliderBar.style.position = 'fixed';
-                sliderBar.style.top = sliderBarTop - bannerTop + 'px';
-            }
-            else {
-                sliderBar.style.position = 'absolute';
-                sliderBar.style.top = sliderBarTop + 'px';
-            }
-            if (window.pageYOffset >= mainBodyTop) {
-                goBack.style.display = 'block';
-            } else {
-                goBack.style.display = 'none';
-            }
-        })
-        // 点我们点击goback就让窗口滚动的页面的最上方
-        goBack.addEventListener('click', function () {
-            //注意括号里面window.scrooll(0, 0)没有单位
-            // window.scroll(0, 0);
-            animateSlowStop(window, 0);
-        })
+  <hr>
 
-        function animateSlowStop(obj, target, callback) {
-            clearInterval(obj.timer);
-            obj.timer = setInterval(function () {
-                var step = (target - window.pageYOffset) / 10;
-                step = step > 0 ? Math.ceil(step) : Math.floor(step);
-                if (window.pageYOffset == target) {
-                    clearInterval(obj.timer);
-                    // if (callback) {
-                    //     callback();
-                    // }
-                    callback && callback();
-                }
-                // obj.style.left = obj.offsetLeft + step + 'px';
-                window.scroll(0, window.pageYOffset + step);
-            }, 15);
-        }
+  <h3>Education</h3>
+  <ul>
+    <li>Bachalor of Science in University of Saskatchwan</li>
+    <li>Udemy Coding Bootcamps</li>
+  </ul>
+  <hr>
+  <h3>Work Experience</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Work</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2009~2014</td>
+        <td>Researcher and Beekeeper in Saskatoon</td>
+      </tr>
+      <tr>
+        <td>2014~2015</td>
+        <td>Sale Specialist in Walmart</td>
+      </tr>
+      <tr>
+        <td>2015~current</td>
+        <td>Store Manager in FunProject.Inc</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
 
-
-    </script>
+  <h3>Skills</h3>
+  <table>
+    <tr>
+      <td>Javascript</td>
+      <td>⭐⭐⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td>⭐⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Java</td>
+      <td>⭐</td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Ajax</td>
+      <td>⭐⭐</td>
+    </tr>
+  </table>
+  <hr>
+  <a href="hobbies.html">My Hobbies</a>
+  <a href="contactme.html">Contact Me</a>
 
 
 
 
 </body>
+
+
+
 
 </html>
